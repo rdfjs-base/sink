@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/rdf-ext/rdf-sink",
   "dependencies": {
+    "lodash": "^4.17.4",
     "readable-stream": "^2.2.3"
   },
   "devDependencies": {
