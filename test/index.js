@@ -39,22 +39,6 @@ function test (Sink, options) {
     })
   }
 
-  it('should forward the end event', () => {
-    let input = new Readable()
-
-    input._read = () => {
-      input.push(null)
-    }
-
-    let sink = new Sink()
-    let stream = sink.import(input)
-
-    input.resume()
-    stream.resume()
-
-    return rdf.waitFor(stream)
-  })
-
   it('should forward the error event', () => {
     let input = new Readable()
 

@@ -11,6 +11,10 @@ class TestStream extends Readable {
     super()
 
     this.options = options
+
+    input.on('end', () => {
+      this.push(null)
+    })
   }
 
   _read () {}

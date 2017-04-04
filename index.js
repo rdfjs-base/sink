@@ -10,9 +10,7 @@ class Sink {
     let output = new this.Impl(input, assign({}, this.options, options))
 
     input.on('end', () => {
-      if (output.readable) {
-        output.push(null)
-      } else {
+      if (!output.readable) {
         output.emit('end')
       }
     })
