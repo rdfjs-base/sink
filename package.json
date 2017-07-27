@@ -4,8 +4,7 @@
   "description": "Abstract RDFJS Sink Interface implementation",
   "main": "index.js",
   "scripts": {
-    "lint": "standard",
-    "test": "npm run lint && mocha"
+    "test": "standard && mocha"
   },
   "repository": {
     "type": "git",
@@ -26,12 +25,11 @@
   "homepage": "https://github.com/rdf-ext/rdf-sink",
   "dependencies": {
     "lodash": "^4.17.4",
-    "rdf-ext": "git://github.com/rdf-ext/rdf-ext.git#develop",
+    "rdf-ext": "^1.0.0",
     "readable-stream": "^2.2.3"
   },
   "devDependencies": {
     "mocha": "^3.2.0",
     "standard": "^9.0.1"
-  },
-  "readmeFilename": "README.md"
+  }
 }
