@@ -30,15 +30,15 @@ describe('rdf-sink', () => {
   test(TestSink)
 
   it('should forward the constructor options', () => {
-    let options = {a: '1'}
-    let input = new Readable()
+    const options = {a: '1'}
+    const input = new Readable()
 
     input._read = () => {
       input.push(null)
     }
 
-    let sink = new TestSink(options)
-    let stream = sink.import(input)
+    const sink = new TestSink(options)
+    const stream = sink.import(input)
 
     input.resume()
     stream.resume()
@@ -49,30 +49,30 @@ describe('rdf-sink', () => {
   })
 
   it('should merge .import method options and constructor options', () => {
-    let constructorOptions = {
+    const constructorOptions = {
       a: '1',
       b: '2'
     }
 
-    let methodOptions = {
+    const methodOptions = {
       b: '3',
       c: '4'
     }
 
-    let mergedOptions = {
+    const mergedOptions = {
       a: '1',
       b: '3',
       c: '4'
     }
 
-    let input = new Readable()
+    const input = new Readable()
 
     input._read = () => {
       input.push(null)
     }
 
-    let sink = new TestSink(constructorOptions)
-    let stream = sink.import(input, methodOptions)
+    const sink = new TestSink(constructorOptions)
+    const stream = sink.import(input, methodOptions)
 
     input.resume()
     stream.resume()

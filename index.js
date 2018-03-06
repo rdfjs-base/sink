@@ -1,5 +1,3 @@
-const assign = require('lodash/assign')
-
 class Sink {
   constructor (Impl, options) {
     this.Impl = Impl
@@ -7,7 +5,7 @@ class Sink {
   }
 
   import (input, options) {
-    let output = new this.Impl(input, assign({}, this.options, options))
+    let output = new this.Impl(input, Object.assign({}, this.options, options))
 
     input.on('end', () => {
       if (!output.readable) {

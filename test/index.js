@@ -24,31 +24,31 @@ function test (Sink, options) {
   })
 
   it('should have a .import method', () => {
-    let sink = new Sink()
+    const sink = new Sink()
 
     assert.equal(typeof sink.import, 'function')
   })
 
   if (options.readable) {
     it('.import should return a Stream instance', () => {
-      let sink = new Sink()
-      let input = new Readable()
-      let stream = sink.import(input)
+      const sink = new Sink()
+      const input = new Readable({read: () => {}})
+      const stream = sink.import(input)
 
       assert(stream.readable)
     })
   }
 
   it('should forward the error event', () => {
-    let input = new Readable()
+    const input = new Readable()
 
     input._read = () => {
       input.emit('error', new Error(''))
     }
 
     return expectError(() => {
-      let sink = new Sink()
-      let stream = sink.import(input)
+      const sink = new Sink()
+      const stream = sink.import(input)
 
       input.resume()
       stream.resume()
