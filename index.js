@@ -5,7 +5,7 @@ class Sink {
   }
 
   import (input, options) {
-    let output = new this.Impl(input, Object.assign({}, this.options, options))
+    const output = new this.Impl(input, Object.assign({}, this.options, options))
 
     input.on('end', () => {
       if (!output.readable) {

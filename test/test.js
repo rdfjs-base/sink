@@ -1,8 +1,8 @@
 /* global describe, it */
 
 const assert = require('assert')
-const rdf = require('rdf-ext')
 const test = require('.')
+const waitFor = require('./support/waitFor')
 const Readable = require('readable-stream')
 const Sink = require('..')
 
@@ -43,7 +43,7 @@ describe('rdf-sink', () => {
     input.resume()
     stream.resume()
 
-    return rdf.waitFor(stream).then(() => {
+    return waitFor(stream).then(() => {
       assert.deepEqual(stream.options, options)
     })
   })
@@ -77,7 +77,7 @@ describe('rdf-sink', () => {
     input.resume()
     stream.resume()
 
-    return rdf.waitFor(stream).then(() => {
+    return waitFor(stream).then(() => {
       assert.deepEqual(stream.options, mergedOptions)
     })
   })

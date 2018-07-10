@@ -1,7 +1,7 @@
 /* global it */
 
 const assert = require('assert')
-const rdf = require('rdf-ext')
+const waitFor = require('./support/waitFor')
 const Readable = require('readable-stream')
 
 function expectError (p) {
@@ -53,7 +53,7 @@ function test (Sink, options) {
       input.resume()
       stream.resume()
 
-      return rdf.waitFor(stream)
+      return waitFor(stream)
     })
   })
 }

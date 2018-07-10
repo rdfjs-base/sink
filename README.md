@@ -1,6 +1,7 @@
-# rdf-sink
+# @rdfjs/sink
 
-[![Build Status](https://travis-ci.org/rdf-ext/rdf-sink.svg?branch=master)](https://travis-ci.org/rdf-ext/rdf-sink)
-[![npm version](https://badge.fury.io/js/rdf-sink.svg)](https://badge.fury.io/js/rdf-parser-n3)
+[![Build Status](https://travis-ci.org/rdfjs/sink.svg?branch=master)](https://travis-ci.org/rdfjs/sink)
 
-Abstract [RDFJS Sink interface](https://github.com/rdfjs/representation-task-force/) implementation.
+[![npm version](https://img.shields.io/npm/v/@rdfjs/sink.svg)](https://www.npmjs.com/package/@rdfjs/sink)
+
+Abstract [RDFJS Sink interface](http://rdf.js.org/) implementation.
