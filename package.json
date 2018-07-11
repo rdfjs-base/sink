@@ -1,6 +1,6 @@
 {
   "name": "@rdfjs/sink",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Abstract RDFJS Sink Interface implementation",
   "main": "index.js",
   "scripts": {
