@@ -3,6 +3,7 @@
   "version": "1.0.3",
   "description": "Abstract RDFJS Sink Interface implementation",
   "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "test": "standard && mocha"
   },
@@ -21,7 +22,9 @@
     "url": "https://github.com/rdfjs-base/sink/issues"
   },
   "homepage": "https://github.com/rdfjs-base/sink",
-  "dependencies": {},
+  "dependencies": {
+    "@types/rdf-js": "^2.0.5"
+  },
   "devDependencies": {
     "mocha": "^5.2.0",
     "readable-stream": "^2.3.6",
