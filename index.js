@@ -5,7 +5,7 @@ class Sink {
   }
 
   import (input, options) {
-    const output = new this.Impl(input, Object.assign({}, this.options, options))
+    const output = new this.Impl(input, { ...this.options, ...options })
 
     input.on('end', () => {
       if (!output.readable) {
@@ -13,7 +13,7 @@ class Sink {
       }
     })
 
-    input.on('error', (err) => {
+    input.on('error', err => {
       output.emit('error', err)
     })
 
@@ -21,4 +21,4 @@ class Sink {
   }
 }
 
-module.exports = Sink
+export default Sink

@@ -1,10 +1,9 @@
-/* global describe, it */
-
-const assert = require('assert')
-const test = require('.')
-const waitFor = require('./support/waitFor')
-const Readable = require('readable-stream')
-const Sink = require('..')
+import { deepEqual } from 'assert'
+import { describe, it } from 'mocha'
+import { Readable } from 'readable-stream'
+import Sink from '../index.js'
+import waitFor from './support/waitFor.js'
+import test from './index.js'
 
 class TestStream extends Readable {
   constructor (input, options) {
@@ -30,7 +29,7 @@ describe('rdf-sink', () => {
   test(TestSink)
 
   it('should forward the constructor options', () => {
-    const options = {a: '1'}
+    const options = { a: '1' }
     const input = new Readable()
 
     input._read = () => {
@@ -44,7 +43,7 @@ describe('rdf-sink', () => {
     stream.resume()
 
     return waitFor(stream).then(() => {
-      assert.deepEqual(stream.options, options)
+      deepEqual(stream.options, options)
     })
   })
 
@@ -78,7 +77,7 @@ describe('rdf-sink', () => {
     stream.resume()
 
     return waitFor(stream).then(() => {
-      assert.deepEqual(stream.options, mergedOptions)
+      deepEqual(stream.options, mergedOptions)
     })
   })
 })

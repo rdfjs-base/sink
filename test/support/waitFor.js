@@ -1,8 +1,15 @@
+import { finished } from 'readable-stream'
+
 function waitFor (stream) {
   return new Promise((resolve, reject) => {
-    stream.on('end', resolve)
-    stream.on('error', reject)
+    finished(stream, err => {
+      if (err) {
+        reject(err)
+      } else {
+        resolve()
+      }
+    })
   })
 }
 
-module.exports = waitFor
+export default waitFor
