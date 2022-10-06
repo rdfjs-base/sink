@@ -1,8 +1,7 @@
-/* global it */
-
-const assert = require('assert')
-const waitFor = require('./support/waitFor')
-const Readable = require('readable-stream')
+import { strictEqual } from 'assert'
+import { it } from 'mocha'
+import { Readable } from 'readable-stream'
+import waitFor from './support/waitFor.js'
 
 function expectError (p) {
   return new Promise((resolve, reject) => {
@@ -20,22 +19,22 @@ function test (Sink, options) {
   options = options || {}
 
   it('should be a constructor', () => {
-    assert.equal(typeof Sink, 'function')
+    strictEqual(typeof Sink, 'function')
   })
 
   it('should have a .import method', () => {
     const sink = new Sink()
 
-    assert.equal(typeof sink.import, 'function')
+    strictEqual(typeof sink.import, 'function')
   })
 
   if (options.readable) {
     it('.import should return a Stream instance', () => {
       const sink = new Sink()
-      const input = new Readable({read: () => {}})
+      const input = new Readable({ read: () => {} })
       const stream = sink.import(input)
 
-      assert(stream.readable)
+      strictEqual(stream.readable, true)
     })
   }
 
@@ -58,4 +57,4 @@ function test (Sink, options) {
   })
 }
 
-module.exports = test
+export default test
